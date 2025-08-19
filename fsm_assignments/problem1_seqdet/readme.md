@@ -6,12 +6,13 @@ Reset: Synchronous, active-high (rst)
 FSM Type: Mealy
 
 
- State Diagram:
-State	Meaning	             Next_State_if_din=0	    Next_State_if_din=1	    Output y
-S0	     No bits matched	      S0	                    s1                  0
-S1	     Matched '1'		      S0	                        s2                  0
-S2	     Matched '11'	          S3	                        s2                  0
-S3	     Matched '110'	          S0	                        s1                  0(ifdin=1)
+| State | Meaning         | Next State if din=0 | Next State if din=1 | Output y |
+|-------|----------------|------------------|------------------|----------|
+| S0    | No bits matched | S0               | S1               | 0        |
+| S1    | Matched '1'     | S0               | S2               | 0        |
+| S2    | Matched '11'    | S3               | S2               | 0        |
+| S3    | Matched '110'   | S0               | S1               | 1 (if din=1) |
+
 
 
 
