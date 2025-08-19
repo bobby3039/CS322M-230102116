@@ -17,7 +17,9 @@ FSM Type: Mealy
 
 
 Test Streams and Expected Output:
-Input Stream ->	Detection Pulse Indices (y=1)
-11011011101	 ->    4, 7, 10
-11101	     ->    3
-101101	     ->    5
+| Input Stream  | Detection Pulse Indices (y=1) |
+|---------------|-------------------------------|
+| 11011011101   | 4, 7, 10                      |
+| 11101         | 3                             |
+| 101101        | 5                             |
+
