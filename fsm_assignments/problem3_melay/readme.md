@@ -7,11 +7,17 @@ Outputs:
 dispense : one-cycle pulse when total ≥ 20
 chg5 : one-cycle pulse if total = 25
 
-State Diagram:
-From S10 + coin=10 → dispense=1, reset to S0.
-From S15 + coin=5 → dispense=1, reset to S0.
-From S15 + coin=10 → dispense=1 and chg5=1, reset to S0.
-All other transitions accumulate coins without outputs.
+| Current State | Input Coin | Next State | Outputs           | Description                                      |
+|---------------|-----------|------------|-----------------|--------------------------------------------------|
+| S0            | 5         | S5         | dispense=0       | Accumulate 5                                     |
+| S0            | 10        | S10        | dispense=0       | Accumulate 10                                    |
+| S5            | 5         | S10        | dispense=0       | Accumulate 5                                     |
+| S5            | 10        | S15        | dispense=0       | Accumulate 10                                    |
+| S10           | 5         | S15        | dispense=0       | Accumulate 5                                     |
+| S10           | 10        | S0         | dispense=1       | Total ≥15, dispense, reset to S0                |
+| S15           | 5         | S0         | dispense=1       | Total=15, dispense, reset to S0                 |
+| S15           | 10        | S0         | dispense=1, chg5=1 | Total>15, dispense + return 5 as change, reset |
+
 
 
 Waveform Behavior:
